@@ -1,5 +1,3 @@
-const fs = require('fs-extra')
-
 exports.wait = () => {
     return `⏳ Mohon tunggu sebentar~`
 }
