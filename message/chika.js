@@ -12,7 +12,7 @@ const xfar = require('xfarr-api');
 
 //Library
 const { color, bgcolor } = require("../lib/color");
-const { ind } = require('../help/')
+const ind = require('../help/ind.js')
 const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, convert, convertGif, convertSticker } = require("../lib/myfunc");
 const setting = JSON.parse(fs.readFileSync('./config.json'));
 let {
@@ -75,9 +75,7 @@ module.exports = async(chika, msg, m) => {
         const isQuotedVideo = isQuotedMsg ? content.includes('videoMessage') ? true : false : false
         const isQuotedSticker = isQuotedMsg ? content.includes('stickerMessage') ? true : false : false
 
-        (function(_0x579a38,_0x321515){const _0x3fe934=_0x4cee,_0x4e5312=_0x579a38();while(!![]){try{const _0x4d2635=parseInt(_0x3fe934(0x116))/0x1*(-parseInt(_0x3fe934(0x11a))/0x2)+-parseInt(_0x3fe934(0x113))/0x3*(parseInt(_0x3fe934(0x11c))/0x4)+-parseInt(_0x3fe934(0x112))/0x5+-parseInt(_0x3fe934(0x111))/0x6*(-parseInt(_0x3fe934(0x11e))/0x7)+parseInt(_0x3fe934(0x117))/0x8+parseInt(_0x3fe934(0x11b))/0x9*(-parseInt(_0x3fe934(0x11d))/0xa)+-parseInt(_0x3fe934(0x115))/0xb*(-parseInt(_0x3fe934(0x11f))/0xc);if(_0x4d2635===_0x321515)break;else _0x4e5312['push'](_0x4e5312['shift']());}catch(_0x42478d){_0x4e5312['push'](_0x4e5312['shift']());}}}(_0x462c,0x37847));function _0x4cee(_0x6f178f,_0x1e04ea){const _0x462c56=_0x462c();return _0x4cee=function(_0x4cee51,_0x4997b9){_0x4cee51=_0x4cee51-0x10f;let _0x2bea7c=_0x462c56[_0x4cee51];return _0x2bea7c;},_0x4cee(_0x6f178f,_0x1e04ea);}const downloadAndSaveMediaMessage=async(_0x5b0b27,_0x991ac6='undefined')=>{return new Promise(async(_0x14630f,_0x4772ef)=>{const _0x550282=_0x4cee;let _0x4630d9=_0x5b0b27+'Message',_0x294324;if(msg[_0x550282(0x10f)][_0x550282(0x110)]==null)_0x294324=await downloadContentFromMessage(msg[_0x550282(0x10f)][_0x4630d9],_0x5b0b27);else _0x294324=await downloadContentFromMessage(msg[_0x550282(0x10f)][_0x550282(0x110)][_0x550282(0x118)][_0x550282(0x121)][_0x4630d9],_0x5b0b27);let _0x3a2d08=Buffer[_0x550282(0x120)]([]);for await(const _0x4832d4 of _0x294324){_0x3a2d08=Buffer[_0x550282(0x119)]([_0x3a2d08,_0x4832d4]);}fs[_0x550282(0x114)](_0x991ac6,_0x3a2d08),_0x14630f(_0x991ac6);});};function _0x462c(){const _0x4c310a=['writeFileSync','95579HBylrG','1bffJLJ','1687112tSvLUE','contextInfo','concat','564762LygtbP','17604BINMtX','4gRNkKi','1660xBJrhG','141946LmptJe','732RyysSX','from','quotedMessage','message','extendedTextMessage','66hQHlHj','127440rrJAOq','312036dshzTU'];_0x462c=function(){return _0x4c310a;};return _0x462c();}
-
-
+        const _0x2b4580=_0x782d;(function(_0x2bd6ea,_0x535be8){const _0x3f83af=_0x782d,_0x3299f3=_0x2bd6ea();while(!![]){try{const _0x17b94d=-parseInt(_0x3f83af(0x109))/0x1+parseInt(_0x3f83af(0x10a))/0x2+parseInt(_0x3f83af(0x103))/0x3+parseInt(_0x3f83af(0x10d))/0x4+parseInt(_0x3f83af(0x102))/0x5*(-parseInt(_0x3f83af(0x101))/0x6)+parseInt(_0x3f83af(0x108))/0x7+-parseInt(_0x3f83af(0x10b))/0x8;if(_0x17b94d===_0x535be8)break;else _0x3299f3['push'](_0x3299f3['shift']());}catch(_0x33ed61){_0x3299f3['push'](_0x3299f3['shift']());}}}(_0x1eb6,0x8fa73));function _0x782d(_0x48d01b,_0x142834){const _0x1eb6da=_0x1eb6();return _0x782d=function(_0x782d44,_0x49e179){_0x782d44=_0x782d44-0xfe;let _0x240285=_0x1eb6da[_0x782d44];return _0x240285;},_0x782d(_0x48d01b,_0x142834);}const downloadAndSaveMediaMessage=async(_0x4d9c7a,_0x5b14d2=_0x2b4580(0x10c))=>{return new Promise(async(_0x47a079,_0x3cd252)=>{const _0x4287ec=_0x782d;let _0x3bb4fa=_0x4d9c7a+_0x4287ec(0x106),_0x598ae7;if(msg[_0x4287ec(0xfe)][_0x4287ec(0x105)]==null)_0x598ae7=await downloadContentFromMessage(msg['message'][_0x3bb4fa],_0x4d9c7a);else _0x598ae7=await downloadContentFromMessage(msg['message']['extendedTextMessage'][_0x4287ec(0xff)][_0x4287ec(0x104)][_0x3bb4fa],_0x4d9c7a);let _0x2552a6=Buffer[_0x4287ec(0x107)]([]);for await(const _0x123d13 of _0x598ae7){_0x2552a6=Buffer[_0x4287ec(0x100)]([_0x2552a6,_0x123d13]);}fs[_0x4287ec(0x10e)](_0x5b14d2,_0x2552a6),_0x47a079(_0x5b14d2);});};function _0x1eb6(){const _0x29315d=['684995hXMwBO','2090202ATimZE','quotedMessage','extendedTextMessage','Message','from','7456218LtEByY','1060862GOIGho','1190916LgaYXK','7861760akaXHO','undefined','2194468ZvDTNg','writeFileSync','message','contextInfo','concat','12xmZPjY'];_0x1eb6=function(){return _0x29315d;};return _0x1eb6();}
         const reply = (teks, men) => {
              return chika.sendMessage(from, { text: teks, mentions: men ? men : [] }, { quoted: msg })
         }
@@ -179,7 +177,7 @@ module.exports = async(chika, msg, m) => {
                 // I try buttonMessage in personal chats, not responding :(
                 if (isGroup) {
                     let buttons = [
-                        {buttonId: `${prefix}allmenu` buttonText: {displayText: '🔍 List Menu'}, type: 1},
+                        {buttonId: `${prefix}allmenu`, buttonText: {displayText: '🔍 List Menu'}, type: 1},
                         {buttonId: `${prefix}rule`, buttonText: {displayText: '🎛️ Rules Bot' }, type: 1}
                     ]
                     sendButton('location', from, `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`, buttons)
