@@ -26,6 +26,58 @@ exports.cmdNotFound = (cmd, prefix) => {
     return `❎ Command *${cmd}* tidak terdaftar di *${prefix}allmenu* ❎`
 }
 
+exports.ownerOnly = () => {
+    return `⚠️ Command ini khusus Owner-sama! ⚠️`
+}
+
+exports.doneOwner = () => {
+    return `✔  ️Sudah selesai, Owner-sama~`
+}
+
+exports.groupOnly = () => {
+    return `👥  Command ini hanya bisa digunakan di dalam grup!`
+}
+
+exports.adminOnly = () => {
+    return `🙅  Command ini hanya bisa digunakan oleh admin grup!`
+}
+
+exports.nhFalse = () => {
+    return `Kode tidak valid!`
+}
+
+exports.listBlock = (blockNumber) => {
+    return `*── 「 HALL OF SHAME 」 ──*
+    
+Total diblokir: *${blockNumber.length}* user\n`
+}
+
+exports.notAdmin = () => {
+    return `❎ User bukan seorang admin! ❎`
+}
+
+exports.adminAlready = () => {
+    return `⚠️ Tidak  dapat mem-promote user yang merupakan admin! ⚠️`
+}
+
+exports.botNotAdmin = () => {
+    return `Jadikan bot sebagai admin terlebih dahulu! 🙏`
+}
+
+exports.received = (pushname) => {
+    return `
+Halo ${pushname}!
+Terima kasih telah melapor, laporanmu akan kami segera terima.`
+}
+
+exports.videoLimit = () => {
+    return `Ukuran file terlalu besar!`
+}
+
+exports.notNum = (q) => {
+    return `"${q}", bukan angka!`
+}
+
 exports.rules = (prefix) => {
     return `
 *── 「 RULES AND FAQ 」 ──*
