@@ -35,9 +35,10 @@
 
 ---
 
-# Chika-Bot
+# ChikaBot Whatsapp MD
 ## Information
 > Chikabot whatsapp using a Baileys library.
+> Jika kamu menemukan semacam bug, harap untuk dimaklumi sementara
 >
 >
 
@@ -60,7 +61,15 @@ npm install
 node main
 ```
 ## For Termux
-
+```bash
+termux-setup-storage
+apt update && apt upgrade
+pkg install nodejs git ffmpeg
+git clone https://github.com/rashidsiregar28/chikabot.git
+cd chikabot
+npm install
+node main
+```
 
 ## For VPS
 ```bash
@@ -72,10 +81,10 @@ node main
 ```
 
 ## Edit file
-- Change ownerNumber on [this section](https://github.com/rashidsiregar28/chika-bot/blob/4d8dc8692e97e2ca60deaa8dc77dab551abf6523/config.json#L2)
-- Change botName on [this section](https://github.com/rashidsiregar28/chika-bot/blob/4d8dc8692e97e2ca60deaa8dc77dab551abf6523/config.json#L5)
-- You can edit list and display menu or donate on [this section](https://github.com/rashidsiregar28/chika-bot/blob/main/help/ind.js)
-- You can add fiture on [this section](https://github.com/rashidsiregar28/chika-bot/blob/main/message/xinz.js)
+- Change ownerNumber on [this section](https://github.com/rashidsiregar28/chikabot/blob/7a7ebe69cf44686d8a577f616b38b5d299ffefcc/config.json#L2)
+- Change botName on [this section](https://github.com/rashidsiregar28/chikabot/blob/7a7ebe69cf44686d8a577f616b38b5d299ffefcc/config.json#L3)
+- You can edit list and display menu or donate on [this section](https://github.com/rashidsiregar28/chikabot/blob/main/help/ind.js)
+- You can add fiture on [this section](https://github.com/rashidsiregar28/chikabot/tree/main/message)
 
 
 ## Installing the FFmpeg for Windows
@@ -101,4 +110,8 @@ Jika berhasil, akan memberikanmu pesan seperti: `SUCCESS: specified value was sa
 - [Official Group](https://chat.whatsapp.com/JeyL5h04lEFJVCMNHdzrVL)
 
 # Thanks to
+<a href="https://github.com/adiwajshing"><img src="https://github.com/adiwajshing.png?size=100" width="100" height="100"></a> | [![FAJAR](http://github.com/xfar05.png?size=100)](http://github.com/xfar05)
+----|----
+[Adiwajshing](https://github.com/adiwajshing) | [Fabil](http://github.com/xfar05)
+Owner of Baileys | Owner of X-Far api
 
