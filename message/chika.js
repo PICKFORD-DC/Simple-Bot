@@ -431,8 +431,7 @@ module.exports = async(chika, msg, m) => {
                     txt += `*📟 Quality :* ${data.medias[0].quality}\n`
                     txt += `*💾 Size :* ${data.medias[0].formattedSize}\n`
                     txt += `*📚 Url :* ${data.url}`
-                    let prepare = await prepareMessage({ 'video': { url: data.medias[0].url} })
-                    sendButtonVid(from, txt, `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
+                    sendFileFromUrl(from, data.medias[0].url, txt, msg)
                 })
                 .catch((err) => {
                     for (let x of ownerNumber) {
@@ -506,30 +505,6 @@ module.exports = async(chika, msg, m) => {
                     textImg(ind.err())
                 })
             break
-            case prefix+'ytdl': case prefix+'youtubedl': case prefix+'youtube':
-                if (!q) return textImg(ind.wrongFormat(prefix))
-                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
-                await textImg(ind.wait())
-                xfar.Youtube(args[1]).then(async (data) => {
-                    const buttons = [
-                        { quickReplyButton: { displayText: `🎥 Music`, id: `${prefix}ytmp3 ${args[1]}` } },
-                        { quickReplyButton: { displayText: `🎶 Video`, id: `${prefix}ytmp4 ${args[1]}` } },
-                    ]
-                    let txt = `*----「 YOUTUBE DOWNLOADER 」----*\n\n`
-                    txt += `*📫 Title :* ${data.title}\n`
-                    txt += `*📟 Duration :* ${data.duration}\n`
-                    txt += `*📚 Url :* ${data.url}`
-                    let prepare = await prepareMessage({ 'location': { jpegThumbnail: await getBuffer(data.thumbnail) } })
-                    sendButtonLoc(from, txt, `Silahkan pilih ekstensi yang anda inginkan`, prepare.locationMessage, buttons)
-                })
-                .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
-                })
-            break
             case prefix+'mp4': case prefix+'ytmp4':
                 if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
@@ -543,8 +518,8 @@ module.exports = async(chika, msg, m) => {
                     txt += `*📚 Url Source :* ${data.url}\n\n`
                     txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
                     sendFileFromUrl(from, data.thumbnail, txt, msg)
-                    let prepare = await prepareMessage({ 'video': { url: data.medias[1].url} })
-                    sendButtonVid(from, ind.ok(), `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
+                    sendFileFromUrl(from, data.medias[1].url, '', msg)
+                    
                 })
                 .catch((err) => {
                     for (let x of ownerNumber) {
@@ -566,7 +541,7 @@ module.exports = async(chika, msg, m) => {
                     txt += `*📚 Url Source :* ${data.url}\n\n`
                     txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
                     sendFileFromUrl(from, data.thumbnail, txt, msg)
-                    await sendFileFromUrl(from, data.medias[7].url, '', msg)
+                    sendFileFromUrl(from, data.medias[7].url, '', msg)
                 })
                 .catch((err) => {
                     for (let x of ownerNumber) {
