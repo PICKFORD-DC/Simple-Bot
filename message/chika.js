@@ -105,17 +105,14 @@ module.exports = async(chika, msg, m) => {
                 return chika.sendMessage(from, { video: await convertGif(url), caption: caption, gifPlayback: true, mentions: men ? men : []}, {quoted: msg})
                 }
             let type = mime.split("/")[0]+"Message"
-            if(mime === "application/pdf"){
-                return chika.sendMessage(from, { document: await getBuffer(url), mimetype: 'application/pdf', caption: caption, mentions: men ? men : []}, {quoted: msg })
-            }
             if(mime.split("/")[0] === "image"){
                 return chika.sendMessage(from, { image: await getBuffer(url), caption: caption, mentions: men ? men : []}, {quoted: msg})
-            }
-            if(mime.split("/")[0] === "video"){
+            } else if(mime.split("/")[0] === "video"){
                 return chika.sendMessage(from, { video: await getBuffer(url), caption: caption, mentions: men ? men : []}, {quoted: msg})
-            }
-            if(mime.split("/")[0] === "audio"){
+            } else if(mime.split("/")[0] === "audio"){
                 return chika.sendMessage(from, { audio: await getBuffer(url), caption: caption, mentions: men ? men : [], mimetype: 'audio/mpeg'}, {quoted: msg })
+            } else {l
+                return chika.sendMessage(from, { document: await getBuffer(url), mimetype: mime, caption: caption, mentions: men ? men : []}, {quoted: msg })
             }
         }
 
@@ -133,6 +130,9 @@ module.exports = async(chika, msg, m) => {
                 reply('invalid type, please contact the owner bot')
             }
         }
+
+        chika.sendReadReceipt(from, sender, [msg.key.id])
+
 
         if (isCmd && !isGroup) {
 			console.log(color('[CMD]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname))
