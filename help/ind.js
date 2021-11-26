@@ -99,6 +99,8 @@ exports.listMenu = (time, salam, pushname, prefix) => {
 ├ ${prefix}revoke
 ├ ${prefix}leave
 ├ ${prefix}group open/close
+├ ${prefix}tagall text
+├ ${prefix}hidetag text
 └──────
 
 😷 *WEEBS*
