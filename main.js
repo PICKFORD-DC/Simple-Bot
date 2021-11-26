@@ -3,6 +3,7 @@ const { default: makeWASocket, BufferJSON, initInMemoryKeyStore, DisconnectReaso
 const figlet = require("figlet");
 const fs = require("fs");
 const P = require('pino')
+const ind = require('./help/ind')
 const { color, ChikaLog } = require("./lib/color");
 let setting = JSON.parse(fs.readFileSync('./config.json'));
 let sesion = `./${setting.sessionName}.json`
@@ -28,7 +29,7 @@ const start = async () => {
     	if (!m.messages) return
         const msg = m.messages[0]
         if (!msg.message) return
-        require('./message/chika')(chika, msg, m)
+        require('./message/chika')(chika, msg, m, ind)
     })
 
     chika.ev.on('connection.update', (update) => {
