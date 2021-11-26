@@ -250,7 +250,7 @@ module.exports = async(chika, msg, m, ind, setting) => {
                 teks += `\n⋙ *${botName}* ⋘`
                 chika.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: msg })
             break
-            case prefix+'hidetag:
+            case prefix+'hidetag':
                 if (!isGroup) return reply(ind.groupOnly())
                 if (!isGroupAdmins && !isOwner) return reply(ind.adminOnly())
                 chika.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
