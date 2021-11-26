@@ -19,7 +19,7 @@ const start = async () => {
 	}), 'cyan'))
 	console.log(color('[ By Rashidsiregar28 ]'))
     // set level pino ke fatal kalo ga mau nampilin log eror
-    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'warn' }), browser: [`${setting.botName} By ChikaBot-MD`], auth: state }) 
+    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'debug' }), auth: state }) 
     console.log(color('Connected....'))
     chika.multi = true
     chika.nopref = false
@@ -29,7 +29,7 @@ const start = async () => {
     	if (!m.messages) return
         const msg = m.messages[0]
         if (!msg.message) return
-        require('./message/chika')(chika, msg, m, ind)
+        require('./message/chika')(chika, msg, m, ind, setting)
     })
 
     chika.ev.on('connection.update', (update) => {
