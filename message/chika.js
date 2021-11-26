@@ -13,17 +13,13 @@ const axios = require('axios')
 
 //Library
 const { color, bgcolor } = require("../lib/color");
-const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, convert, convertGif, convertSticker } = require("../lib/myfunc");
-const setting = JSON.parse(fs.readFileSync('./config.json'));
-let {
-    ownerNumber,
-    botName
-} = setting
+const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep } = require("../lib/myfunc");
 
 moment.tz.setDefault("Asia/Jakarta").locale("id");
      
-module.exports = async(chika, msg, m, ind) => {
+module.exports = async(chika, msg, m, ind, setting) => {
     try {
+        let { ownerNumber, botName } = setting
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('DD/MM/YY HH:mm:ss z')
         const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
         const fromMe = msg.key.fromMe
@@ -236,13 +232,28 @@ module.exports = async(chika, msg, m, ind) => {
                 if (args.length === 1) return reply(ind.wrongFormat())
                 if (args[1].toLowerCase() === 'open'){
                     await chika.groupSettingUpdate(from, 'not_announcement')
-					reply(ind.ok())
+		    reply(ind.ok())
                 } else if (args[1].toLowerCase() === 'close'){
                     await chika.groupSettingUpdate(from, 'announcement')
                     reply(ind.ok())
                 } else {
                     reply(ind.wrongFormat())
                 }
+            break
+            case prefix+'tagall': case prefix+'infoall':
+                if (!isGroup) return reply(ind.groupOnly())
+                if (!isGroupAdmins && !isOwner) return reply(ind.adminOnly())
+                let teks = `══✪〘 *👥 Mention All* 〙✪══\n\n➲ *Message : ${q ? q : 'Nothing'}*\n\n`
+		      	for (let mem of groupMembers) {
+		            teks += `࿃➡️ @${mem.id.split('@')[0]}\n`
+				}
+                teks += `\n⋙ *${botName}* ⋘`
+                chika.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: msg })
+            break
+            case prefix+'hidetag:
+                if (!isGroup) return reply(ind.groupOnly())
+                if (!isGroupAdmins && !isOwner) return reply(ind.adminOnly())
+                chika.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
             break
             //Weebs
             case prefix+'anime':
