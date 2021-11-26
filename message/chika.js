@@ -12,7 +12,6 @@ const xfar = require('xfarr-api');
 
 //Library
 const { color, bgcolor } = require("../lib/color");
-const ind = require('../help/ind.js')
 const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, convert, convertGif, convertSticker } = require("../lib/myfunc");
 const setting = JSON.parse(fs.readFileSync('./config.json'));
 let {
@@ -22,7 +21,7 @@ let {
 
 moment.tz.setDefault("Asia/Jakarta").locale("id");
      
-module.exports = async(chika, msg, m) => {
+module.exports = async(chika, msg, m, ind) => {
     try {
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('DD/MM/YY HH:mm:ss z')
         const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
