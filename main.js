@@ -28,16 +28,14 @@ const start = async () => {
     chika.ev.on('messages.upsert', async m => {
     	if (!m.messages) return
         const msg = m.messages[0]
-        if (!msg.message) return
         require('./message/chika')(chika, msg, m, ind, setting)
     })
 
     chika.ev.on('connection.update', (update) => {
         const { connection, lastDisconnect } = update
         if (connection === 'close') {
-            console.log(ChikaLog('Koneksi terputus....'))
-            if (lastDisconnect.error?.output?.statusCode === DisconnectReason.loggedOut) console.log(ChikaLog('Wa web terlogout.'))
-            else start()
+            console.log(ChikaLog('Error with code', lastDisconnect.error?.output?.statusCode))
+            lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut ? start() : console.log(ChikaLog('Wa web terlogout.'))
         }
     })
 
