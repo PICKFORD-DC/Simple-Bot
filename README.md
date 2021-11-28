@@ -64,7 +64,7 @@ node main
 ```bash
 termux-setup-storage
 apt update && apt upgrade
-pkg install nodejs git ffmpeg
+pkg install nodejs git ffmpeg wget
 git clone https://github.com/rashidsiregar28/chikabot.git
 cd chikabot
 npm install
@@ -73,7 +73,7 @@ node main
 
 ## For VPS
 ```bash
-apt install nodejs git ffmpeg
+apt install nodejs git ffmpeg wget
 git clone https://github.com/rashidsiregar28/chikabot.git
 cd chikabot
 npm install
