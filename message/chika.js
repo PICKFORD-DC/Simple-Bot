@@ -111,20 +111,17 @@ module.exports = async(chika, msg, m, ind, setting) => {
                 return chika.sendMessage(from, { document: await getBuffer(url), mimetype: mime, caption: caption, mentions: men ? men : []}, {quoted: msg })
             }
         }
+        
+        //Please dont edit for urlbutton 
+        const buttonsDefault = [
+            { callButton: {displayText: `☎ ️Call Owner`, phoneNumber: `+628127668234`} },
+            { urlButton: { displayText: `💠 Script Bot`, url : `https://github.com/rashidsiregar28/chikabot`} },
+            { quickReplyButton: { displayText: `🧑 Owner`, id: `${prefix}owner` } },
+            { quickReplyButton: { displayText: `🎛️ Rules`, id: `${prefix}rules` } }
+        ]
 
-        const sendButton = (type, from, text, buttons, men, quoted, options) => { 
-            if (type == 'image') {
-                chika.sendMessage(from, { caption: text, image: options ? options : fs.readFileSync(setting.pathImg), buttons: buttons, headerType: 'IMAGE', mentions: men }, {quoted: quoted})
-            } else if (type == 'video') {
-                if (options === undefined || options === null) return reply('illegal method, chat owner bot')
-                chika.sendMessage(from, { caption: text, video: options, buttons: buttons, headerType: 'VIDEO', mentions: men }, {quoted: quoted})
-            } else if (type == 'location') {
-                chika.sendMessage(from, { caption: text, location: { jpegThumbnail: options ? options : fs.readFileSync(setting.pathImg) }, buttons: buttons, headerType: 'LOCATION', mentions: men })
-            } else if (type == 'text') {
-                chika.sendMessage(from, { text: text, buttons: buttons, headerType: 'TEXT', mentions: men }, {quoted: quoted})
-            } else {
-                reply('invalid type, please contact the owner bot')
-            }
+        const textTemplateButtons = (from, text, footer, buttons) => {
+            return chika.sendMessage(from, { text: text, footer: footer, templateButtons: buttons })
         }
 
         chika.sendReadReceipt(from, sender, [msg.key.id])
@@ -170,16 +167,7 @@ module.exports = async(chika, msg, m, ind, setting) => {
                 }
             break
             case prefix+'menu': case prefix+'help':{
-                // I try buttonMessage in personal chats, not responding :(
-                if (isGroup) {
-                    let buttons = [
-                        {buttonId: `${prefix}allmenu`, buttonText: {displayText: '🔍 List Menu'}, type: 1},
-                        {buttonId: `${prefix}rule`, buttonText: {displayText: '🎛️ Rules Bot' }, type: 1}
-                    ]
-                    sendButton('location', from, `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`, buttons)
-               } else {
-                   textImg(`Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. \nJika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏\n\nKetik *${prefix}allmenu* untuk melihat list fitur bot`)
-                }
+                textTemplateButtons(from, `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp.`, `Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`, buttonsDefault)
             }
             break
             case prefix+'allmenu': {
