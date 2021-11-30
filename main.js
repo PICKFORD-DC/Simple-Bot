@@ -35,7 +35,9 @@ const start = async () => {
         const { connection, lastDisconnect } = update
         if (connection === 'close') {
             console.log(ChikaLog('Error with code +', lastDisconnect.error.output))
-            lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut ? start() : console.log(ChikaLog('Wa web terlogout.'))
+            lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut 
+            ? start()
+            : console.log(ChikaLog('Wa web terlogout.'))
         }
     })
 
