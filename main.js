@@ -20,11 +20,10 @@ const start = async () => {
 	console.log(color('[ By Rashidsiregar28 ]'))
     // set level pino ke fatal kalo ga mau nampilin log eror
     const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'debug' }), auth: state }) 
-    console.log(color('Connected....'))
     chika.multi = true
     chika.nopref = false
     chika.prefa = 'anjing'
-
+    console.log(color('Connected....'))
     chika.ev.on('messages.upsert', async m => {
     	if (!m.messages) return
         const msg = m.messages[0]
@@ -34,7 +33,7 @@ const start = async () => {
     chika.ev.on('connection.update', (update) => {
         const { connection, lastDisconnect } = update
         if (connection === 'close') {
-            console.log(ChikaLog('Error with code +', lastDisconnect.error.output))
+            console.log(ChikaLog('connection closed, try to restart'))
             lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut 
             ? start()
             : console.log(ChikaLog('Wa web terlogout.'))
