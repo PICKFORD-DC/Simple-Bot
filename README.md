@@ -45,7 +45,7 @@
 <h3 align="center">Made by :</h3>
 <p align="center">
   <a href="https://github.com/rashidsiregar28"><img src="https://avatars.githubusercontent.com/u/74960869?v=4" height="128" width="128" /></a>
-  <a href="https://github.com/xfar-05"><img src="https://avatars.githubusercontent.com/u/87578425?v=4" height="128" width="128" /></a>
+  <a href="https://github.com/xfar05"><img src="https://avatars.githubusercontent.com/u/87578425?v=4" height="128" width="128" /></a>
 </p>
 
 ## Bugs and Tester
