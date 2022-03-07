@@ -1,5 +1,5 @@
 "use strict";
-const { default: makeWASocket, BufferJSON, initInMemoryKeyStore, DisconnectReason, AnyMessageContent, delay, useSingleFileAuthState } = require("@adiwajshing/baileys-md")
+const { default: makeWASocket, BufferJSON, initInMemoryKeyStore, DisconnectReason, AnyMessageContent, delay, useSingleFileAuthState, makeInMemoryStore } = require("@adiwajshing/baileys-md")
 const figlet = require("figlet");
 const fs = require("fs");
 const P = require('pino')
@@ -7,7 +7,13 @@ const ind = require('./help/ind')
 const { color, ChikaLog } = require("./lib/color");
 let setting = JSON.parse(fs.readFileSync('./config.json'));
 let sesion = `./${setting.sessionName}.json`
+const store = makeInMemoryStore({ logger: P().child({ level: 'fatal', stream: 'store' }) })
+store.readFromFile(sesion)
+setInterval(() => {
+	store.writeToFile(sesion)
+}, 10_000)
 const { state, saveState } = useSingleFileAuthState(sesion)
+
 
 const start = async () => {
     //Meng weem
@@ -19,11 +25,12 @@ const start = async () => {
 	}), 'cyan'))
 	console.log(color('[ By Rashidsiregar28 ]'))
     // set level pino ke fatal kalo ga mau nampilin log eror
-    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'debug' }), auth: state }) 
+    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'fatal' }), auth: state }) 
     chika.multi = true
     chika.nopref = false
     chika.prefa = 'anjing'
     console.log(color('Connected....'))
+    store.bind(chika.ev)
     chika.ev.on('messages.upsert', async m => {
     	if (!m.messages) return
         const msg = m.messages[0]
