@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
-    "@adiwajshing/baileys-md": "github:adiwajshing/keyed-db",
+    "@adiwajshing/keyed-db": "github:adiwajshing/keyed-db",
     "awesome-phonenumber": "^2.64.0",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
