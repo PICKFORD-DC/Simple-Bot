@@ -7,7 +7,7 @@ const ind = require('./help/ind')
 const { color, ChikaLog } = require("./lib/color");
 let setting = JSON.parse(fs.readFileSync('./config.json'));
 let sesion = `./${setting.sessionName}.json`
-const store = makeInMemoryStore({ logger: P().child({ level: 'fatal', stream: 'store' }) })
+const store = makeInMemoryStore({ logger: P().child({ level: 'silent', stream: 'store' }) })
 store.readFromFile('./baileys-md.json')
 setInterval(() => {
 	store.writeToFile('./baileys-md.json')
@@ -25,7 +25,7 @@ const start = async () => {
 	}), 'cyan'))
 	console.log(color('[ By Rashidsiregar28 ]'))
     // set level pino ke fatal kalo ga mau nampilin log eror
-    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'fatal' }), auth: state }) 
+    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'silent' }), auth: state, version: [2,2204,13]}) 
     chika.multi = true
     chika.nopref = false
     chika.prefa = 'anjing'
