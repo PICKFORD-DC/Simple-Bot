@@ -38,8 +38,6 @@
 # ChikaBot Whatsapp MD
 ## Information
 > Chikabot whatsapp using a Baileys library.
-> Jika kamu menemukan semacam bug, harap untuk dimaklumi sementara
->
 >
 
 <h3 align="center">Made by :</h3>
