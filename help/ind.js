@@ -78,7 +78,7 @@ exports.listMenu = (time, salam, pushname, prefix) => {
     return `
 *Selamat ${salam} ${pushname} 😖*
 *⌚Time Server : ${time}*
-*📚 List-Menu KAYy Simple-Bot:*
+*📚 List-Menu ${botName}:*
 
 🤖 *INFO*
 ├ ${prefix}owner
