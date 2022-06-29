@@ -3,13 +3,11 @@ exports.wait = () => {
 }
 
 exports.ok = () => {
-    return `✅ Done. Ok desu~`
+    return `Succes`
 }
 
 exports.err = () => {
-    return `‼️Fitur Sedang Error‼️
-
-⏳Sedang melapor bug fitur ke owner-sama⏳`
+    return `‼️Fitur Sedang Error‼️`
 }
 
 exports.wrongFormat = (prefix) => {
@@ -25,19 +23,19 @@ exports.cmdNotFound = (cmd, prefix) => {
 }
 
 exports.ownerOnly = () => {
-    return `⚠️ Command ini khusus Owner-sama! ⚠️`
+    return `FITUR KHUSUS OWNER`
 }
 
 exports.doneOwner = () => {
-    return `✔  ️Sudah selesai, Owner-sama~`
+    return `Succes`
 }
 
 exports.groupOnly = () => {
-    return `👥  Command ini hanya bisa digunakan di dalam grup!`
+    return `FITUR KHUSUS GRUP`
 }
 
 exports.adminOnly = () => {
-    return `🙅  Command ini hanya bisa digunakan oleh admin grup!`
+    return `FUTUR KHUSUS ADMIN`
 }
 
 exports.nhFalse = () => {
@@ -51,15 +49,15 @@ Total diblokir: *${blockNumber.length}* user\n`
 }
 
 exports.notAdmin = () => {
-    return `❎ User bukan seorang admin! ❎`
+    return `MINIMAL ADMIN`
 }
 
 exports.adminAlready = () => {
-    return `⚠️ Tidak  dapat mem-promote user yang merupakan admin! ⚠️`
+    return `FITUR KHUSUS ADMIN`
 }
 
 exports.botNotAdmin = () => {
-    return `Jadikan bot sebagai admin terlebih dahulu! 🙏`
+    return `Jadikan bot sebagai admin terlebih dahulu! `
 }
 
 exports.received = (pushname) => {
@@ -80,7 +78,7 @@ exports.listMenu = (time, salam, pushname, prefix) => {
     return `
 *Selamat ${salam} ${pushname} 😖*
 *⌚Time Server : ${time}*
-*📚 List-Menu Chika Beta :*
+*📚 List-Menu KAYy Simple-Bot:*
 
 🤖 *INFO*
 ├ ${prefix}owner
@@ -134,7 +132,7 @@ exports.listMenu = (time, salam, pushname, prefix) => {
 
 🙏 *THANKS*
 ├ Xfarr api
-├ Baileys#multi-device
+├ PickFord
 ├ and all support
 └──────
 
@@ -187,7 +185,7 @@ exports.tos = (ownerNumber, prefix) => {
 
 Hai 👋
 Kalian bisa mendukung saya agar bot ini tetap up to date dengan:
-🏧 08127668234 (OVO/Dana/GoPay)
+🏧 085722156367 (OVO/Dana/GoPay)
 
 Berapapun donasi kalian akan sangat berarti 👍
 
